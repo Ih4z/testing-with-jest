@@ -40,11 +40,10 @@ describe('Clicking "Pusha till stacken"', () => {
 describe('Vad är överst i stacken', () => {
   it('visar översta elementet efter push och peek', async () => {
     
-    //Här saboterar vi stacken genom att inte tömma den (och detta är med mening för att det ska bli fel)
     //Tömmer stacken på bananer
-/*     await driver.findElement(By.id('pop')).click();
+    await driver.findElement(By.id('pop')).click();
     let prompt1 = await driver.switchTo().alert();
-    await prompt1.accept(); */
+    await prompt1.accept();
 
     //Pushar Chips
     await driver.findElement(By.id('push')).click();
