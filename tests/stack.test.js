@@ -17,3 +17,23 @@ test('peek on stack with two or more elements returns the top element', () => {
     expect(stack.peek()).toBeDefined();
     expect(stack.peek()).toBe(42);
 });
+
+//Mitt test
+test('lägger in tre saker och tar ut dem i omvänd ordning', () => {
+  stack.push('chips');
+  stack.push('läsk');
+  stack.push('godis');
+
+
+  expect(stack.pop()).toBe('godis');
+
+//Här finns det förväntade felet för att det egentligen ska vara läsk 
+  expect(stack.peek()).toBe('chips');
+//Detta är det som ska vara rätt
+/* expect(stack.peek()).toBe('läsk'); */
+
+//Poppar läsk och chips
+  expect(stack.pop()).toBe('läsk');
+  expect(stack.pop()).toBe('chips');
+});
+

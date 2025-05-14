@@ -34,3 +34,33 @@ describe('Clicking "Pusha till stacken"', () => {
         await alert.accept();
     });
 });
+
+
+//Mitt test
+describe('Vad är överst i stacken', () => {
+  it('visar översta elementet efter push och peek', async () => {
+    
+    //Här saboterar vi stacken genom att inte tömma den (och detta är med mening för att det ska bli fel)
+    //Tömmer stacken på bananer
+/*     await driver.findElement(By.id('pop')).click();
+    let prompt1 = await driver.switchTo().alert();
+    await prompt1.accept(); */
+
+    //Pushar Chips
+    await driver.findElement(By.id('push')).click();
+    let prompt2 = await driver.switchTo().alert();
+    await prompt2.sendKeys('Chips');
+    await prompt2.accept();
+
+    //Kontrollera att Chips är överst i stacken
+    let top1 = await driver.findElement(By.id('top_of_stack')).getText();
+    expect(top1).toEqual('Chips');
+
+    //Peekar på stacken
+    await driver.findElement(By.id('peek')).click();
+
+    //Kontrollera att Chips fortfarande är överst i stacken
+    let top2 = await driver.findElement(By.id('top_of_stack')).getText();
+    expect(top2).toEqual('Chips');
+  });
+});
